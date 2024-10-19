@@ -40,8 +40,9 @@ export default async function handler(
   await runCorsMiddleware(req, res);
 
   if (req.method === "GET") {
+    const {userid} = req.query
     try {
-      const response = await fetch(`https://www.codechef.com/users/aspireve`);
+      const response = await fetch(`https://www.codechef.com/users/${userid}`);
       const data = await response.text();
 
       // Extract heatmap data
